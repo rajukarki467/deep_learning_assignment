@@ -1,0 +1,40 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment / secrets
+.env
+.env.*
+
+# Data
+data/raw/
+data/processed/
+data/partitions/
+
+# Model outputs
+checkpoints/
+models/
+outputs/
+
+# Results/logs that should not be committed
+results/logs/
+
+# Git backup
+.git_old/
+
+# OS files
+.DS_Store
+Thumbs.db

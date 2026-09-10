@@ -673,3 +673,12 @@ Deep Learning Assignment — Variational Autoencoders
 ## 📄 License
 
 This project is developed for **educational and academic purposes**.
+
+
+### PyTorch Installation Note
+
+This project requires a PyTorch wheel compiled for CUDA ≤ your driver version.
+Check your driver's max CUDA with `nvidia-smi` (top-right corner), then install:
+
+    # Example for driver supporting CUDA 12.5 (or lower):
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124

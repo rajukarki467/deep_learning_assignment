@@ -1,0 +1,35 @@
+# configs/transformer.yaml
+experiment_name: "gpt_shakespeare_experiment"
+seed: 42
+
+data:
+  dataset: "shakespeare"   # Options: shakespeare, synthetic
+  data_dir: "./data/raw/shakespeare"
+  block_size: 128          # context length
+  batch_size: 64
+  num_workers: 2
+
+model:
+  vocab_size: 65           # will be overwritten by dataset; default for tiny shakespeare char-level
+  n_embd: 256              # embedding dimension
+  n_head: 8                # number of attention heads
+  n_layer: 6               # number of transformer blocks
+  dropout: 0.1
+  bias: False              # use bias in Linear/LayerNorm (GPT-2 style: False)
+
+training:
+  epochs: 10
+  max_steps: 5000          # total optimizer steps
+  batch_size: 64
+  learning_rate: 3.0e-4    # peak LR after warmup
+  min_lr: 3.0e-5           # final LR after cosine decay
+  warmup_steps: 200        # linear warmup steps
+  weight_decay: 0.1
+  grad_clip: 1.0
+  use_amp: True            # mixed precision
+  amp_dtype: "bf16"        # "fp16" or "bf16"
+  device: "cuda"
+  eval_interval: 250
+  eval_iters: 100
+  save_dir: "./results/checkpoints"
+  log_dir: "./results/logs"
